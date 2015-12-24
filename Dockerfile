@@ -31,4 +31,4 @@ RUN yum -y update; yum clean all; \
   rm -f /lib/systemd/system/basic.target.wants/*;\
   rm -f /lib/systemd/system/anaconda.target.wants/*;
 VOLUME [ "/sys/fs/cgroup" ]
-CMD ["/usr/sbin/init"]
+ENTRYPOINT ["/usr/sbin/init"]
