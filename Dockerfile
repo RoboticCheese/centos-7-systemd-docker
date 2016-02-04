@@ -20,7 +20,8 @@ FROM centos:7
 MAINTAINER Jonathan Hartman "j@p4nt5.com"
 
 ENV container docker
-RUN yum -y swap -- remove fakesystemd -- install systemd systemd-libs initscripts; \
+RUN yum -y swap -- remove fakesystemd -- install systemd systemd-libs; \
+  yum -y install initscripts; \
   yum -y update; \
   yum clean all; \
   (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
